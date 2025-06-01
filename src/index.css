@@ -135,4 +135,92 @@
   .dark .hover-lift:hover {
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
   }
+
+  .neomorphic {
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 20px 20px 60px #d1d9e6, -20px -20px 60px #ffffff;
+    border-radius: 2rem;
+    backdrop-filter: blur(10px);
+  }
+
+  .dark .neomorphic {
+    background: rgba(30, 41, 59, 0.95);
+    box-shadow: 20px 20px 60px #0f172a, -20px -20px 60px #1e293b;
+  }
+
+  .neomorphic-inset {
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: inset 20px 20px 60px #d1d9e6, inset -20px -20px 60px #ffffff;
+    border-radius: 1.5rem;
+  }
+
+  .dark .neomorphic-inset {
+    background: rgba(30, 41, 59, 0.9);
+    box-shadow: inset 20px 20px 60px #0f172a, inset -20px -20px 60px #1e293b;
+  }
+
+  .phone-mockup {
+    background: linear-gradient(145deg, #f0f4f8, #d6e1ea);
+    box-shadow: 
+      0 0 0 8px rgba(30, 41, 59, 0.8),
+      0 0 0 12px rgba(30, 41, 59, 0.6),
+      0 40px 80px rgba(0, 0, 0, 0.2);
+    border-radius: 3rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .phone-mockup:hover {
+    transform: translateY(-10px) rotateY(5deg);
+    box-shadow: 
+      0 0 0 8px rgba(30, 41, 59, 0.8),
+      0 0 0 12px rgba(30, 41, 59, 0.6),
+      0 60px 120px rgba(0, 0, 0, 0.25);
+  }
+
+  .floating-element {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .floating-element:nth-child(2n) {
+    animation-delay: -2s;
+  }
+
+  .floating-element:nth-child(3n) {
+    animation-delay: -4s;
+  }
+
+  .parallax-slow {
+    animation: parallax-slow 20s linear infinite;
+  }
+
+  .parallax-fast {
+    animation: parallax-fast 15s linear infinite;
+  }
+
+  @keyframes parallax-slow {
+    0% { transform: translateX(-100px); }
+    100% { transform: translateX(calc(100vw + 100px)); }
+  }
+
+  @keyframes parallax-fast {
+    0% { transform: translateX(-50px); }
+    100% { transform: translateX(calc(100vw + 50px)); }
+  }
+
+  .pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes pulse-glow {
+    from {
+      box-shadow: 0 0 20px rgba(38, 166, 154, 0.4);
+    }
+    to {
+      box-shadow: 0 0 40px rgba(38, 166, 154, 0.8);
+    }
+  }
+
+  .stagger-animation {
+    animation-delay: calc(var(--delay) * 0.1s);
+  }
 }
