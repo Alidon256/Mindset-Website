@@ -35,7 +35,7 @@ const Header = () => {
         <div className="flex items-center space-x-2">
           <div className={`${
             isScrolled ? 'w-8 h-8' : 'w-10 h-10'
-          } rounded-full bg-gradient-to-br from-primary to-primary-dark flex items-center justify-center transition-all duration-300`}>
+          } rounded-full bg-gradient-to-br from-teal-500 to-teal-700 flex items-center justify-center transition-all duration-300`}>
             <Heart className={`${
               isScrolled ? 'w-4 h-4' : 'w-5 h-5'
             } text-white transition-all duration-300`} />
@@ -51,10 +51,10 @@ const Header = () => {
             <a
               key={item.label}
               href={item.href}
-              className="text-foreground hover:text-primary transition-colors duration-300 font-medium relative group"
+              className="text-navy-800 dark:text-white hover:text-teal-600 transition-colors duration-300 font-medium relative group"
             >
               {item.label}
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-teal-500 transition-all duration-300 group-hover:w-full"></span>
             </a>
           ))}
         </nav>
@@ -62,7 +62,7 @@ const Header = () => {
         {/* Desktop Actions */}
         <div className="hidden md:flex items-center space-x-4">
           <ThemeToggle />
-          <Button className="bg-primary hover:bg-primary-dark text-white transition-all duration-300 hover:scale-105">
+          <Button className="bg-teal-600 hover:bg-teal-700 text-white transition-all duration-300 hover:scale-105">
             <Download className="w-4 h-4 mr-2" />
             Get App
           </Button>
@@ -73,7 +73,7 @@ const Header = () => {
           <ThemeToggle />
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="text-foreground hover:text-primary transition-colors"
+            className="text-navy-800 dark:text-white hover:text-teal-600 transition-colors"
             aria-label="Toggle menu"
           >
             {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -89,13 +89,13 @@ const Header = () => {
               <a
                 key={item.label}
                 href={item.href}
-                className="block text-foreground hover:text-primary transition-colors duration-200 font-medium text-lg"
+                className="block text-navy-800 dark:text-white hover:text-teal-600 transition-colors duration-200 font-medium text-lg"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.label}
               </a>
             ))}
-            <Button className="w-full bg-primary hover:bg-primary-dark text-white mt-4 py-6">
+            <Button className="w-full bg-teal-600 hover:bg-teal-700 text-white mt-4 py-6">
               <Download className="w-5 h-5 mr-2" />
               Download App
             </Button>

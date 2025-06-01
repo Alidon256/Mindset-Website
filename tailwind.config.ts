@@ -28,7 +28,7 @@ export default {
 				primary: {
 					DEFAULT: '#26A69A',
 					light: '#4DB6AC',
-					dark: '#00897B',
+					dark: '#00695C',
 					foreground: '#FFFFFF'
 				},
 				secondary: {
@@ -36,8 +36,8 @@ export default {
 					foreground: 'hsl(var(--secondary-foreground))'
 				},
 				destructive: {
-					DEFAULT: 'hsl(var(--destructive))',
-					foreground: 'hsl(var(--destructive-foreground))'
+					DEFAULT: '#8B4513',
+					foreground: '#FFFFFF'
 				},
 				muted: {
 					DEFAULT: 'hsl(var(--muted))',
@@ -63,9 +63,9 @@ export default {
 					400: '#2DD4BF',
 					500: '#26A69A',
 					600: '#00897B',
-					700: '#0F766E',
-					800: '#115E59',
-					900: '#134E4A'
+					700: '#00695C',
+					800: '#004D40',
+					900: '#003D33'
 				},
 				brown: {
 					50: '#FDF8F6',
@@ -73,11 +73,37 @@ export default {
 					200: '#EADDD7',
 					300: '#E0C4B7',
 					400: '#D2A282',
-					500: '#B8704C',
-					600: '#A0522D',
-					700: '#8B4513',
-					800: '#7A3E0F',
-					900: '#6B340C'
+					500: '#A0522D',
+					600: '#8B4513',
+					700: '#6B340C',
+					800: '#5D2F0A',
+					900: '#4A2608'
+				},
+				navy: {
+					50: '#F8FAFC',
+					100: '#F1F5F9',
+					200: '#E2E8F0',
+					300: '#CBD5E1',
+					400: '#94A3B8',
+					500: '#475569',
+					600: '#334155',
+					700: '#1E293B',
+					800: '#0F172A',
+					900: '#020617'
+				},
+				white: '#FFFFFF',
+				black: '#000000',
+				gray: {
+					50: '#F9FAFB',
+					100: '#F3F4F6',
+					200: '#E5E7EB',
+					300: '#D1D5DB',
+					400: '#9CA3AF',
+					500: '#6B7280',
+					600: '#4B5563',
+					700: '#374151',
+					800: '#1F2937',
+					900: '#111827'
 				}
 			},
 			fontFamily: {

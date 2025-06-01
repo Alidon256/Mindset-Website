@@ -26,7 +26,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-gradient-to-br from-gray-900 to-gray-800 text-white">
+    <footer className="bg-gradient-to-br from-navy-900 to-gray-900 text-white">
       {/* Main Footer */}
       <div className="container mx-auto px-4 pt-20 pb-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
@@ -34,7 +34,7 @@ const Footer = () => {
           {/* Brand & Newsletter */}
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-3 mb-6">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-primary-dark flex items-center justify-center">
+              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-teal-500 to-teal-700 flex items-center justify-center">
                 <Heart className="w-5 h-5 text-white" />
               </div>
               <span className="text-2xl font-bold text-gradient">Mindset</span>
@@ -51,9 +51,9 @@ const Footer = () => {
                 <Input 
                   type="email" 
                   placeholder="Your email address" 
-                  className="bg-gray-800 border-gray-700 text-gray-200 focus:border-primary" 
+                  className="bg-navy-800 border-navy-700 text-gray-200 focus:border-teal-500" 
                 />
-                <Button className="bg-primary hover:bg-primary-dark flex-shrink-0">
+                <Button className="bg-teal-600 hover:bg-teal-700 flex-shrink-0">
                   Subscribe
                 </Button>
               </div>
@@ -69,7 +69,7 @@ const Footer = () => {
                   <li key={linkIndex}>
                     <a 
                       href="#" 
-                      className="text-gray-300 hover:text-primary transition-colors duration-200"
+                      className="text-gray-300 hover:text-teal-400 transition-colors duration-200"
                     >
                       {link}
                     </a>
@@ -81,25 +81,25 @@ const Footer = () => {
         </div>
 
         {/* Social Links */}
-        <div className="border-t border-gray-800 pt-8 mt-16">
+        <div className="border-t border-navy-800 pt-8 mt-16">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm mb-4 md:mb-0">
               © {currentYear} Mindset. All rights reserved.
             </p>
             <div className="flex space-x-6">
-              <a href="#" className="text-gray-400 hover:text-primary transition-colors">
+              <a href="#" className="text-gray-400 hover:text-teal-400 transition-colors">
                 <Instagram className="w-5 h-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-primary transition-colors">
+              <a href="#" className="text-gray-400 hover:text-teal-400 transition-colors">
                 <Twitter className="w-5 h-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-primary transition-colors">
+              <a href="#" className="text-gray-400 hover:text-teal-400 transition-colors">
                 <Facebook className="w-5 h-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-primary transition-colors">
+              <a href="#" className="text-gray-400 hover:text-teal-400 transition-colors">
                 <Youtube className="w-5 h-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-primary transition-colors">
+              <a href="#" className="text-gray-400 hover:text-teal-400 transition-colors">
                 <Mail className="w-5 h-5" />
               </a>
             </div>

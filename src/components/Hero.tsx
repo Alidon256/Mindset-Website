@@ -12,20 +12,20 @@ const Hero = () => {
           alt="Peaceful sunlight filtering through lush green forest"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-teal-900/30 via-teal-800/40 to-teal-600/50"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-teal-900/30 via-navy-800/40 to-teal-600/50"></div>
         <div className="absolute inset-0 bg-black/20 dark:bg-black/40"></div>
       </div>
 
       {/* Floating elements for visual interest */}
-      <div className="absolute top-20 left-10 w-32 h-32 bg-primary/10 rounded-full blur-xl animate-float"></div>
-      <div className="absolute bottom-20 right-10 w-24 h-24 bg-primary-light/15 rounded-full blur-xl animate-float" style={{animationDelay: '1s'}}></div>
+      <div className="absolute top-20 left-10 w-32 h-32 bg-teal-500/10 rounded-full blur-xl animate-float"></div>
+      <div className="absolute bottom-20 right-10 w-24 h-24 bg-teal-400/15 rounded-full blur-xl animate-float" style={{animationDelay: '1s'}}></div>
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 text-center text-white">
         <div className="animate-fade-in">
           <div className="flex justify-center mb-8">
-            <div className="w-20 h-20 rounded-full bg-primary/20 backdrop-blur-sm flex items-center justify-center animate-float glow-teal">
-              <Heart className="w-10 h-10 text-primary-light" />
+            <div className="w-20 h-20 rounded-full bg-teal-500/20 backdrop-blur-sm flex items-center justify-center animate-float glow-teal neomorphic">
+              <Heart className="w-10 h-10 text-teal-300" />
             </div>
           </div>
           
@@ -43,7 +43,7 @@ const Hero = () => {
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <Button 
               size="lg" 
-              className="bg-primary hover:bg-primary-dark text-white px-10 py-6 text-lg font-semibold rounded-full transition-all duration-500 hover:scale-110 glow-teal hover-lift shadow-2xl"
+              className="bg-teal-600 hover:bg-teal-700 text-white px-10 py-6 text-lg font-semibold rounded-full transition-all duration-500 hover:scale-110 glow-teal hover-lift shadow-2xl"
             >
               <Download className="w-6 h-6 mr-3" />
               Download App Now
@@ -51,7 +51,7 @@ const Hero = () => {
             <Button 
               size="lg" 
               variant="outline" 
-              className="border-2 border-white/80 text-white hover:bg-white hover:text-primary px-10 py-6 text-lg font-semibold rounded-full transition-all duration-500 hover:scale-110 backdrop-blur-sm"
+              className="border-2 border-white/80 text-white hover:bg-white hover:text-navy-800 px-10 py-6 text-lg font-semibold rounded-full transition-all duration-500 hover:scale-110 backdrop-blur-sm"
             >
               <Play className="w-6 h-6 mr-3" />
               Watch Demo
@@ -61,15 +61,15 @@ const Hero = () => {
           {/* Stats */}
           <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-2xl mx-auto">
             <div className="text-center animate-scale-in" style={{animationDelay: '0.2s'}}>
-              <div className="text-3xl font-bold text-primary-light">100K+</div>
+              <div className="text-3xl font-bold text-teal-300">100K+</div>
               <div className="text-sm text-gray-300">Active Users</div>
             </div>
             <div className="text-center animate-scale-in" style={{animationDelay: '0.4s'}}>
-              <div className="text-3xl font-bold text-primary-light">500+</div>
+              <div className="text-3xl font-bold text-teal-300">500+</div>
               <div className="text-sm text-gray-300">Meditation Sessions</div>
             </div>
             <div className="text-center animate-scale-in" style={{animationDelay: '0.6s'}}>
-              <div className="text-3xl font-bold text-primary-light">98%</div>
+              <div className="text-3xl font-bold text-teal-300">98%</div>
               <div className="text-sm text-gray-300">User Satisfaction</div>
             </div>
           </div>

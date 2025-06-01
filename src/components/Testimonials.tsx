@@ -35,14 +35,14 @@ const Testimonials = () => {
   ];
 
   return (
-    <section className="py-24 bg-gradient-to-br from-teal-50 to-blue-50 dark:from-gray-900 dark:to-gray-800">
+    <section className="py-24 bg-gradient-to-br from-teal-50 to-navy-50 dark:from-navy-900 dark:to-gray-800">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-navy-800 dark:text-white">
             Loved by
             <span className="text-gradient block">Wellness Seekers</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-xl text-navy-600 dark:text-gray-300 max-w-2xl mx-auto">
             Join thousands who have transformed their mental wellness journey with Mindset
           </p>
         </div>
@@ -51,15 +51,15 @@ const Testimonials = () => {
           {testimonials.map((testimonial, index) => (
             <Card 
               key={index}
-              className="group hover-lift bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border-0 shadow-lg overflow-hidden"
+              className="group hover-lift bg-white dark:bg-navy-800 border-0 shadow-lg overflow-hidden neomorphic"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <CardContent className="p-6">
                 <div className="flex items-center mb-4">
-                  <Quote className="w-8 h-8 text-primary/60 mb-4" />
+                  <Quote className="w-8 h-8 text-teal-500 mb-4" />
                 </div>
                 
-                <p className="text-muted-foreground mb-6 leading-relaxed">
+                <p className="text-navy-600 dark:text-gray-300 mb-6 leading-relaxed">
                   "{testimonial.content}"
                 </p>
                 
@@ -70,14 +70,14 @@ const Testimonials = () => {
                     className="w-12 h-12 rounded-full object-cover"
                   />
                   <div className="flex-1">
-                    <h4 className="font-semibold text-foreground">{testimonial.name}</h4>
-                    <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+                    <h4 className="font-semibold text-navy-800 dark:text-white">{testimonial.name}</h4>
+                    <p className="text-sm text-brown-600 dark:text-brown-400">{testimonial.role}</p>
                   </div>
                 </div>
 
                 <div className="flex items-center mt-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 text-primary fill-current" />
+                    <Star key={i} className="w-4 h-4 text-teal-500 fill-current" />
                   ))}
                 </div>
               </CardContent>
