@@ -24,18 +24,18 @@ export const ThemeToggle = () => {
   return (
     <button
       onClick={toggleTheme}
-      className="relative w-16 h-8 neomorphic p-1 transition-all duration-500 ease-in-out focus:outline-none focus:ring-2 focus:ring-primary hover:glow-teal"
+      className="relative w-16 h-8 bg-gray-300 dark:bg-gray-700 rounded-full p-1 transition-all duration-500 ease-in-out focus:outline-none focus:ring-2 focus:ring-primary shadow-inner"
       aria-label="Toggle theme"
     >
       <div
-        className={`absolute top-1 left-1 w-6 h-6 bg-gradient-teal rounded-full shadow-lg transition-all duration-500 ease-in-out flex items-center justify-center transform ${
-          theme === 'dark' ? 'translate-x-8 rotate-180' : 'translate-x-0 rotate-0'
+        className={`absolute top-1 left-1 w-6 h-6 bg-white rounded-full shadow-md transition-transform duration-500 ease-in-out flex items-center justify-center ${
+          theme === 'dark' ? 'translate-x-8' : 'translate-x-0'
         }`}
       >
         {theme === 'light' ? (
-          <Sun className="w-4 h-4 text-white" />
+          <Sun className="w-4 h-4 text-yellow-500" />
         ) : (
-          <Moon className="w-4 h-4 text-white" />
+          <Moon className="w-4 h-4 text-blue-400" />
         )}
       </div>
     </button>
