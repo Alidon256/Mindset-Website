@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { Send, Bot, User, Brain, Sparkles, MessageCircle, Zap, Shield, Heart, Wifi, Battery, Signal, ArrowLeft, MoreVertical, Phone, Video } from 'lucide-react';
+import { Send, Bot, User, Brain, Sparkles, MessageCircle, Zap, Shield, Heart } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
@@ -23,12 +23,6 @@ const MindsetAI = () => {
   ]);
   const [inputText, setInputText] = useState('');
   const [isTyping, setIsTyping] = useState(false);
-  const [currentTime, setCurrentTime] = useState(new Date());
-
-  useEffect(() => {
-    const timer = setInterval(() => setCurrentTime(new Date()), 1000);
-    return () => clearInterval(timer);
-  }, []);
 
   const handleSendMessage = () => {
     if (!inputText.trim()) return;
@@ -102,10 +96,10 @@ const MindsetAI = () => {
             <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-teal-500 to-teal-700 rounded-3xl mb-6 animate-float">
               <Brain className="w-10 h-10 text-white" />
             </div>
-            <h1 className="text-5xl md:text-6xl font-bold text-navy-800 dark:text-white mb-6 text-gradient animate-scale-in">
+            <h1 className="text-5xl md:text-6xl font-bold text-navy-800 dark:text-white mb-6 text-gradient">
               Mindset AI Assistant
             </h1>
-            <p className="text-xl text-navy-600 dark:text-white/80 max-w-3xl mx-auto leading-relaxed animate-slide-up">
+            <p className="text-xl text-navy-600 dark:text-white/80 max-w-3xl mx-auto leading-relaxed">
               Experience the future of mental wellness with our advanced AI companion. 
               Get personalized guidance, instant support, and evidence-based therapeutic techniques 
               available 24/7 in a secure, private environment.
@@ -117,10 +111,10 @@ const MindsetAI = () => {
             {features.map((feature, index) => (
               <div 
                 key={feature.title}
-                className="neomorphic rounded-2xl p-6 text-center hover-lift animate-fade-in transform transition-all duration-500 hover:rotate-1"
-                style={{ animationDelay: `${index * 0.2}s` }}
+                className="neomorphic rounded-2xl p-6 text-center hover-lift animate-fade-in"
+                style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className={`w-16 h-16 bg-gradient-to-br ${feature.gradient} rounded-2xl flex items-center justify-center mx-auto mb-4 animate-pulse shadow-lg`}>
+                <div className={`w-16 h-16 bg-gradient-to-br ${feature.gradient} rounded-2xl flex items-center justify-center mx-auto mb-4 animate-pulse`}>
                   <feature.icon className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="font-bold text-navy-800 dark:text-white mb-2 text-lg">{feature.title}</h3>
@@ -129,143 +123,130 @@ const MindsetAI = () => {
             ))}
           </div>
 
-          {/* Android App Mockup */}
+          {/* Main Chat Interface */}
           <div className="grid lg:grid-cols-3 gap-8 mb-16">
-            {/* Android Phone Mockup */}
-            <div className="lg:col-span-2 flex justify-center">
-              <div className="relative">
-                {/* Phone Frame */}
-                <div className="w-80 h-[640px] bg-black rounded-[3rem] p-6 shadow-2xl animate-scale-in transform hover:scale-105 transition-all duration-500">
-                  {/* Phone Screen */}
-                  <div className="w-full h-full bg-white dark:bg-gray-900 rounded-[2rem] overflow-hidden flex flex-col">
-                    
-                    {/* Android Status Bar */}
-                    <div className="bg-gray-100 dark:bg-gray-800 px-6 py-2 flex justify-between items-center text-xs animate-fade-in">
-                      <div className="flex items-center space-x-1">
-                        <span className="font-medium text-gray-800 dark:text-white">
-                          {currentTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-                        </span>
-                      </div>
-                      <div className="flex items-center space-x-1">
-                        <Signal className="w-3 h-3 text-gray-600 dark:text-gray-300" />
-                        <Wifi className="w-3 h-3 text-gray-600 dark:text-gray-300" />
-                        <Battery className="w-4 h-3 text-gray-600 dark:text-gray-300" />
-                        <span className="text-gray-600 dark:text-gray-300 text-xs">85%</span>
-                      </div>
+            {/* Chat Demo */}
+            <div className="lg:col-span-2">
+              <div className="neomorphic rounded-3xl p-6 h-[600px] flex flex-col animate-scale-in">
+                <div className="flex items-center justify-between mb-6">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-12 h-12 bg-gradient-to-br from-teal-500 to-teal-700 rounded-2xl flex items-center justify-center">
+                      <Bot className="w-6 h-6 text-white" />
                     </div>
-
-                    {/* App Header */}
-                    <div className="bg-teal-600 px-4 py-3 flex items-center justify-between shadow-md animate-slide-down">
-                      <div className="flex items-center space-x-3">
-                        <ArrowLeft className="w-5 h-5 text-white" />
-                        <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center animate-pulse">
-                          <Bot className="w-5 h-5 text-teal-600" />
-                        </div>
-                        <div>
-                          <h3 className="text-white font-semibold text-sm">Mindset AI</h3>
-                          <p className="text-teal-100 text-xs">Online now</p>
-                        </div>
-                      </div>
-                      <div className="flex items-center space-x-3">
-                        <Phone className="w-5 h-5 text-white" />
-                        <Video className="w-5 h-5 text-white" />
-                        <MoreVertical className="w-5 h-5 text-white" />
-                      </div>
-                    </div>
-
-                    {/* Messages Area */}
-                    <div className="flex-1 p-4 overflow-y-auto space-y-3 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
-                      {messages.map((message, index) => (
-                        <div
-                          key={message.id}
-                          className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'} animate-fade-in transform transition-all duration-300`}
-                          style={{ animationDelay: `${index * 0.1}s` }}
-                        >
-                          <div className={`max-w-[70%] ${message.sender === 'user' ? 'order-1' : 'order-2'}`}>
-                            <div
-                              className={`rounded-2xl px-4 py-2 shadow-md transform transition-all duration-300 hover:scale-105 ${
-                                message.sender === 'user'
-                                  ? 'bg-teal-600 text-white rounded-br-sm'
-                                  : 'bg-white dark:bg-gray-700 text-gray-800 dark:text-white rounded-bl-sm neomorphic-inset'
-                              }`}
-                            >
-                              <p className="text-sm leading-relaxed">{message.text}</p>
-                              <span className={`text-xs mt-1 block ${
-                                message.sender === 'user' 
-                                  ? 'text-teal-100' 
-                                  : 'text-gray-500 dark:text-gray-400'
-                              }`}>
-                                {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      ))}
-                      
-                      {/* Typing Indicator */}
-                      {isTyping && (
-                        <div className="flex justify-start animate-fade-in">
-                          <div className="max-w-[70%]">
-                            <div className="bg-white dark:bg-gray-700 neomorphic-inset rounded-2xl rounded-bl-sm px-4 py-3 shadow-md">
-                              <div className="flex space-x-1">
-                                <div className="w-2 h-2 bg-teal-600 rounded-full animate-bounce"></div>
-                                <div className="w-2 h-2 bg-teal-600 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
-                                <div className="w-2 h-2 bg-teal-600 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      )}
-                    </div>
-
-                    {/* Input Area */}
-                    <div className="p-4 bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700">
-                      <div className="flex items-center space-x-3 bg-gray-100 dark:bg-gray-700 rounded-full px-4 py-2">
-                        <input
-                          value={inputText}
-                          onChange={(e) => setInputText(e.target.value)}
-                          onKeyPress={handleKeyPress}
-                          placeholder="Type a message..."
-                          className="flex-1 bg-transparent border-none outline-none text-gray-800 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 text-sm"
-                        />
-                        <button
-                          onClick={handleSendMessage}
-                          disabled={!inputText.trim()}
-                          className="bg-teal-600 hover:bg-teal-700 text-white p-2 rounded-full transition-all duration-300 hover:scale-110 disabled:opacity-50 disabled:hover:scale-100"
-                        >
-                          <Send className="w-4 h-4" />
-                        </button>
+                    <div>
+                      <h3 className="font-bold text-navy-800 dark:text-white">Mindset AI</h3>
+                      <div className="flex items-center space-x-2">
+                        <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                        <span className="text-sm text-green-600 dark:text-green-400">Online</span>
                       </div>
                     </div>
                   </div>
+                  <Sparkles className="w-6 h-6 text-teal-600 animate-pulse" />
+                </div>
+
+                {/* Messages Area */}
+                <div className="flex-1 overflow-y-auto space-y-4 mb-4 pr-2">
+                  {messages.map((message) => (
+                    <div
+                      key={message.id}
+                      className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'} animate-fade-in`}
+                    >
+                      <div className={`flex items-start space-x-3 max-w-[80%] ${message.sender === 'user' ? 'flex-row-reverse space-x-reverse' : ''}`}>
+                        <div className={`w-8 h-8 rounded-full flex items-center justify-center ${
+                          message.sender === 'user' 
+                            ? 'bg-teal-600' 
+                            : 'bg-white dark:bg-navy-700 border border-navy-200 dark:border-navy-600'
+                        }`}>
+                          {message.sender === 'user' ? (
+                            <User className="w-5 h-5 text-white" />
+                          ) : (
+                            <Bot className="w-5 h-5 text-navy-600 dark:text-white" />
+                          )}
+                        </div>
+                        <div
+                          className={`rounded-2xl px-4 py-3 ${
+                            message.sender === 'user'
+                              ? 'bg-teal-600 text-white'
+                              : 'bg-white dark:bg-navy-800 text-black dark:text-white neomorphic-inset'
+                          }`}
+                        >
+                          <p className="text-sm leading-relaxed">{message.text}</p>
+                          <span className={`text-xs mt-1 block ${
+                            message.sender === 'user' 
+                              ? 'text-teal-100' 
+                              : 'text-navy-500 dark:text-navy-400'
+                          }`}>
+                            {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                  
+                  {/* Typing Indicator */}
+                  {isTyping && (
+                    <div className="flex justify-start animate-fade-in">
+                      <div className="flex items-start space-x-3 max-w-[80%]">
+                        <div className="w-8 h-8 rounded-full flex items-center justify-center bg-white dark:bg-navy-700 border border-navy-200 dark:border-navy-600">
+                          <Bot className="w-5 h-5 text-navy-600 dark:text-white" />
+                        </div>
+                        <div className="bg-white dark:bg-navy-800 neomorphic-inset rounded-2xl px-4 py-3">
+                          <div className="flex space-x-1">
+                            <div className="w-2 h-2 bg-teal-600 rounded-full animate-bounce"></div>
+                            <div className="w-2 h-2 bg-teal-600 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+                            <div className="w-2 h-2 bg-teal-600 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                {/* Input Area */}
+                <div className="neomorphic-inset rounded-2xl p-4 flex items-center space-x-3">
+                  <textarea
+                    value={inputText}
+                    onChange={(e) => setInputText(e.target.value)}
+                    onKeyPress={handleKeyPress}
+                    placeholder="Share what's on your mind..."
+                    className="flex-1 resize-none bg-transparent border-none outline-none text-navy-800 dark:text-white placeholder-navy-500 dark:placeholder-navy-400"
+                    rows={1}
+                  />
+                  <Button
+                    onClick={handleSendMessage}
+                    disabled={!inputText.trim()}
+                    className="bg-teal-600 hover:bg-teal-700 text-white p-3 rounded-xl transition-all duration-300 hover:scale-105"
+                  >
+                    <Send className="w-5 h-5" />
+                  </Button>
                 </div>
               </div>
             </div>
 
             {/* Information Panel */}
             <div className="space-y-6">
-              <div className="neomorphic rounded-2xl p-6 animate-slide-up transform hover:scale-105 transition-all duration-300">
+              <div className="neomorphic rounded-2xl p-6 animate-slide-up">
                 <h3 className="font-bold text-navy-800 dark:text-white mb-4 flex items-center">
-                  <Heart className="w-5 h-5 text-teal-600 mr-2 animate-pulse" />
+                  <Heart className="w-5 h-5 text-teal-600 mr-2" />
                   How It Works
                 </h3>
                 <div className="space-y-4">
-                  <div className="flex items-start space-x-3 animate-fade-in" style={{ animationDelay: '0.1s' }}>
-                    <div className="w-6 h-6 bg-teal-600 text-white rounded-full flex items-center justify-center text-xs font-bold animate-bounce">1</div>
+                  <div className="flex items-start space-x-3">
+                    <div className="w-6 h-6 bg-teal-600 text-white rounded-full flex items-center justify-center text-xs font-bold">1</div>
                     <div>
                       <p className="text-sm font-medium text-navy-800 dark:text-white">Share Your Thoughts</p>
                       <p className="text-xs text-navy-600 dark:text-white/70">Express your feelings, concerns, or questions</p>
                     </div>
                   </div>
-                  <div className="flex items-start space-x-3 animate-fade-in" style={{ animationDelay: '0.2s' }}>
-                    <div className="w-6 h-6 bg-teal-600 text-white rounded-full flex items-center justify-center text-xs font-bold animate-bounce" style={{ animationDelay: '0.1s' }}>2</div>
+                  <div className="flex items-start space-x-3">
+                    <div className="w-6 h-6 bg-teal-600 text-white rounded-full flex items-center justify-center text-xs font-bold">2</div>
                     <div>
                       <p className="text-sm font-medium text-navy-800 dark:text-white">AI Analysis</p>
                       <p className="text-xs text-navy-600 dark:text-white/70">Our AI understands and processes your message</p>
                     </div>
                   </div>
-                  <div className="flex items-start space-x-3 animate-fade-in" style={{ animationDelay: '0.3s' }}>
-                    <div className="w-6 h-6 bg-teal-600 text-white rounded-full flex items-center justify-center text-xs font-bold animate-bounce" style={{ animationDelay: '0.2s' }}>3</div>
+                  <div className="flex items-start space-x-3">
+                    <div className="w-6 h-6 bg-teal-600 text-white rounded-full flex items-center justify-center text-xs font-bold">3</div>
                     <div>
                       <p className="text-sm font-medium text-navy-800 dark:text-white">Personalized Response</p>
                       <p className="text-xs text-navy-600 dark:text-white/70">Receive tailored guidance and support</p>
@@ -274,26 +255,23 @@ const MindsetAI = () => {
                 </div>
               </div>
 
-              <div className="neomorphic rounded-2xl p-6 animate-slide-up transform hover:scale-105 transition-all duration-300" style={{ animationDelay: '0.2s' }}>
-                <h3 className="font-bold text-navy-800 dark:text-white mb-4 flex items-center">
-                  <Sparkles className="w-5 h-5 text-teal-600 mr-2 animate-spin" />
-                  Key Benefits
-                </h3>
+              <div className="neomorphic rounded-2xl p-6 animate-slide-up" style={{ animationDelay: '0.2s' }}>
+                <h3 className="font-bold text-navy-800 dark:text-white mb-4">Key Benefits</h3>
                 <ul className="space-y-3 text-sm">
-                  <li className="flex items-center text-navy-600 dark:text-white/70 animate-fade-in" style={{ animationDelay: '0.1s' }}>
-                    <div className="w-2 h-2 bg-teal-500 rounded-full mr-3 animate-pulse"></div>
+                  <li className="flex items-center text-navy-600 dark:text-white/70">
+                    <div className="w-2 h-2 bg-teal-500 rounded-full mr-3"></div>
                     24/7 availability
                   </li>
-                  <li className="flex items-center text-navy-600 dark:text-white/70 animate-fade-in" style={{ animationDelay: '0.2s' }}>
-                    <div className="w-2 h-2 bg-teal-500 rounded-full mr-3 animate-pulse" style={{ animationDelay: '0.1s' }}></div>
+                  <li className="flex items-center text-navy-600 dark:text-white/70">
+                    <div className="w-2 h-2 bg-teal-500 rounded-full mr-3"></div>
                     Evidence-based responses
                   </li>
-                  <li className="flex items-center text-navy-600 dark:text-white/70 animate-fade-in" style={{ animationDelay: '0.3s' }}>
-                    <div className="w-2 h-2 bg-teal-500 rounded-full mr-3 animate-pulse" style={{ animationDelay: '0.2s' }}></div>
+                  <li className="flex items-center text-navy-600 dark:text-white/70">
+                    <div className="w-2 h-2 bg-teal-500 rounded-full mr-3"></div>
                     Completely confidential
                   </li>
-                  <li className="flex items-center text-navy-600 dark:text-white/70 animate-fade-in" style={{ animationDelay: '0.4s' }}>
-                    <div className="w-2 h-2 bg-teal-500 rounded-full mr-3 animate-pulse" style={{ animationDelay: '0.3s' }}></div>
+                  <li className="flex items-center text-navy-600 dark:text-white/70">
+                    <div className="w-2 h-2 bg-teal-500 rounded-full mr-3"></div>
                     Personalized guidance
                   </li>
                 </ul>
@@ -302,14 +280,14 @@ const MindsetAI = () => {
           </div>
 
           {/* Bottom CTA */}
-          <div className="text-center neomorphic rounded-3xl p-8 animate-fade-in transform hover:scale-105 transition-all duration-500">
-            <h2 className="text-3xl font-bold text-navy-800 dark:text-white mb-4 animate-pulse">
+          <div className="text-center neomorphic rounded-3xl p-8 animate-fade-in">
+            <h2 className="text-3xl font-bold text-navy-800 dark:text-white mb-4">
               Ready to Transform Your Mental Wellness?
             </h2>
-            <p className="text-navy-600 dark:text-white/70 mb-6 max-w-2xl mx-auto animate-slide-up">
+            <p className="text-navy-600 dark:text-white/70 mb-6 max-w-2xl mx-auto">
               Join thousands of users who have found peace, clarity, and better mental health through our AI-powered platform.
             </p>
-            <Button className="bg-gradient-to-r from-teal-600 to-teal-700 hover:from-teal-700 hover:to-teal-800 text-white px-8 py-4 text-lg font-semibold rounded-2xl transition-all duration-300 hover:scale-110 glow-teal animate-bounce">
+            <Button className="bg-gradient-to-r from-teal-600 to-teal-700 hover:from-teal-700 hover:to-teal-800 text-white px-8 py-4 text-lg font-semibold rounded-2xl transition-all duration-300 hover:scale-105 glow-teal">
               Start Your Journey Today
             </Button>
           </div>
