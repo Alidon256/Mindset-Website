@@ -49,14 +49,14 @@ const Features = () => {
   ];
 
   return (
-    <section id="features" className="py-24 bg-gradient-to-br from-teal-50/50 via-navy-50/30 to-brown-50/50 dark:from-navy-900 dark:via-gray-800 dark:to-gray-900">
+    <section id="features" className="py-24 bg-gradient-to-br from-teal-50 via-white to-navy-50 dark:from-navy-900 dark:via-navy-800 dark:to-teal-900">
       <div className="container mx-auto px-4">
         <div className="text-center mb-20 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-navy-800 dark:text-white">
             Everything You Need for
             <span className="text-gradient block">Mental Wellness</span>
           </h2>
-          <p className="text-xl text-navy-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-navy-600 dark:text-white/80 max-w-3xl mx-auto leading-relaxed">
             Our comprehensive platform offers scientifically-backed resources designed to support your mental health journey, 
             whether you're a student managing stress, an entrepreneur building resilience, or anyone seeking inner peace.
           </p>
@@ -85,7 +85,7 @@ const Features = () => {
                 <h3 className="text-xl font-semibold mb-4 text-navy-800 dark:text-white group-hover:text-teal-600 transition-colors duration-300">
                   {feature.title}
                 </h3>
-                <p className="text-navy-600 dark:text-gray-300 leading-relaxed">{feature.description}</p>
+                <p className="text-navy-600 dark:text-white/70 leading-relaxed">{feature.description}</p>
               </CardContent>
             </Card>
           ))}
