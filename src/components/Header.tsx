@@ -21,9 +21,10 @@ const Header = () => {
   const navItems = [
     { label: 'Home', href: '#home' },
     { label: 'Features', href: '#features' },
-    { label: 'Download', href: '#download' },
+    { label: 'About', href: '#about' },
     { label: 'Testimonials', href: '#testimonials' },
-    { label: 'About', href: '#about' }
+    { label: 'Mindset AI', href: '/mindset-ai' },
+    { label: 'Download', href: '#download' }
   ];
 
   return (
@@ -46,12 +47,12 @@ const Header = () => {
         </div>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-10">
+        <nav className="hidden lg:flex items-center space-x-8">
           {navItems.map((item) => (
             <a
               key={item.label}
               href={item.href}
-              className="text-navy-800 dark:text-white hover:text-teal-600 transition-colors duration-300 font-medium relative group"
+              className="text-navy-800 dark:text-white hover:text-teal-600 transition-colors duration-300 font-medium relative group text-sm xl:text-base"
             >
               {item.label}
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-teal-500 transition-all duration-300 group-hover:w-full"></span>
@@ -60,16 +61,16 @@ const Header = () => {
         </nav>
 
         {/* Desktop Actions */}
-        <div className="hidden md:flex items-center space-x-4">
+        <div className="hidden lg:flex items-center space-x-4">
           <ThemeToggle />
-          <Button className="bg-teal-600 hover:bg-teal-700 text-white transition-all duration-300 hover:scale-105">
+          <Button className="bg-teal-600 hover:bg-teal-700 text-white transition-all duration-300 hover:scale-105 font-semibold">
             <Download className="w-4 h-4 mr-2" />
             Get App
           </Button>
         </div>
 
         {/* Mobile Menu Button */}
-        <div className="md:hidden flex items-center space-x-4">
+        <div className="lg:hidden flex items-center space-x-4">
           <ThemeToggle />
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -83,7 +84,7 @@ const Header = () => {
 
       {/* Mobile Navigation */}
       {isMenuOpen && (
-        <div className="md:hidden glass-effect border-t border-border animate-fade-in">
+        <div className="lg:hidden glass-effect border-t border-border animate-fade-in">
           <nav className="container mx-auto px-4 py-6 space-y-6">
             {navItems.map((item) => (
               <a
@@ -95,7 +96,7 @@ const Header = () => {
                 {item.label}
               </a>
             ))}
-            <Button className="w-full bg-teal-600 hover:bg-teal-700 text-white mt-4 py-6">
+            <Button className="w-full bg-teal-600 hover:bg-teal-700 text-white mt-4 py-6 font-semibold">
               <Download className="w-5 h-5 mr-2" />
               Download App
             </Button>

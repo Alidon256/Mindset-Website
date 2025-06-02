@@ -143,25 +143,39 @@
 
   .neomorphic {
     background: linear-gradient(145deg, #f8fafc, #ffffff);
-    box-shadow: 20px 20px 60px #e2e8f0, -20px -20px 60px #ffffff;
+    box-shadow: 
+      20px 20px 40px rgba(226, 232, 240, 0.8), 
+      -20px -20px 40px rgba(255, 255, 255, 0.9),
+      inset 2px 2px 8px rgba(226, 232, 240, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
   }
 
   .dark .neomorphic {
     background: linear-gradient(145deg, #1e293b, #334155);
-    box-shadow: 20px 20px 60px #0f172a, -20px -20px 60px #475569;
+    box-shadow: 
+      20px 20px 40px rgba(15, 23, 42, 0.8), 
+      -20px -20px 40px rgba(71, 85, 105, 0.3),
+      inset 2px 2px 8px rgba(15, 23, 42, 0.5);
+    border: 1px solid rgba(71, 85, 105, 0.2);
   }
 
   .neomorphic-inset {
     background: linear-gradient(145deg, #ffffff, #f8fafc);
-    box-shadow: inset 20px 20px 60px #e2e8f0, inset -20px -20px 60px #ffffff;
+    box-shadow: 
+      inset 8px 8px 16px rgba(226, 232, 240, 0.8), 
+      inset -8px -8px 16px rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(226, 232, 240, 0.3);
   }
 
   .dark .neomorphic-inset {
     background: linear-gradient(145deg, #334155, #1e293b);
-    box-shadow: inset 20px 20px 60px #0f172a, inset -20px -20px 60px #475569;
+    box-shadow: 
+      inset 8px 8px 16px rgba(15, 23, 42, 0.8), 
+      inset -8px -8px 16px rgba(71, 85, 105, 0.3);
+    border: 1px solid rgba(51, 65, 85, 0.3);
   }
 
-  /* Enhanced animations */
+  /* Enhanced animations for better responsiveness */
   .animate-fade-in {
     animation: fadeIn 0.8s ease-out forwards;
   }
@@ -177,7 +191,7 @@
   @keyframes fadeIn {
     from {
       opacity: 0;
-      transform: translateY(30px);
+      transform: translateY(20px);
     }
     to {
       opacity: 1;
@@ -188,7 +202,7 @@
   @keyframes scaleIn {
     from {
       opacity: 0;
-      transform: scale(0.9);
+      transform: scale(0.95);
     }
     to {
       opacity: 1;
@@ -199,11 +213,26 @@
   @keyframes slideUp {
     from {
       opacity: 0;
-      transform: translateY(50px);
+      transform: translateY(30px);
     }
     to {
       opacity: 1;
       transform: translateY(0);
+    }
+  }
+
+  /* Responsive utilities */
+  @media (max-width: 640px) {
+    .neomorphic {
+      box-shadow: 
+        10px 10px 20px rgba(226, 232, 240, 0.6), 
+        -10px -10px 20px rgba(255, 255, 255, 0.8);
+    }
+    
+    .dark .neomorphic {
+      box-shadow: 
+        10px 10px 20px rgba(15, 23, 42, 0.6), 
+        -10px -10px 20px rgba(71, 85, 105, 0.2);
     }
   }
 
@@ -251,5 +280,18 @@
     50% {
       box-shadow: 0 0 40px rgba(38, 166, 154, 0.6);
     }
+  }
+
+  /* Mobile-first responsive design utilities */
+  .responsive-padding {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+
+  .responsive-text {
+    @apply text-sm sm:text-base lg:text-lg;
+  }
+
+  .responsive-heading {
+    @apply text-2xl sm:text-3xl lg:text-4xl xl:text-5xl;
   }
 }
