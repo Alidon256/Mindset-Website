@@ -1,92 +1,178 @@
 
 import { Users, Calendar, Star, Award, Globe, TrendingUp } from 'lucide-react';
+import { useEffect, useState } from 'react';
 
 const Statistics = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    const element = document.getElementById('statistics-section');
+    if (element) observer.observe(element);
+
+    return () => observer.disconnect();
+  }, []);
+
   const stats = [
     {
       icon: Users,
-      number: "2M+",
+      number: "5M+",
       label: "Active Users Worldwide",
-      description: "Join millions finding peace"
+      description: "Join millions finding peace",
+      color: "from-teal-500 to-teal-700"
     },
     {
       icon: Calendar,
-      number: "50M+",
+      number: "100M+",
       label: "Meditation Sessions Completed",
-      description: "Collective mindfulness hours"
+      description: "Collective mindfulness hours",
+      color: "from-navy-500 to-navy-700"
     },
     {
       icon: Star,
       number: "4.9",
       label: "Average App Rating",
-      description: "Trusted by our community"
+      description: "Trusted by our community",
+      color: "from-brown-500 to-brown-700"
     },
     {
       icon: Award,
-      number: "95%",
+      number: "98%",
       label: "User Satisfaction Rate",
-      description: "Positive wellness outcomes"
+      description: "Positive wellness outcomes",
+      color: "from-teal-600 to-navy-600"
     },
     {
       icon: Globe,
-      number: "150+",
+      number: "180+",
       label: "Countries Reached",
-      description: "Global wellness impact"
+      description: "Global wellness impact",
+      color: "from-navy-600 to-black"
     },
     {
       icon: TrendingUp,
-      number: "89%",
+      number: "95%",
       label: "Report Better Sleep",
-      description: "Within first 30 days"
+      description: "Within first 30 days",
+      color: "from-brown-600 to-navy-700"
     }
   ];
 
+  const CountingNumber = ({ target, isVisible }: { target: string, isVisible: boolean }) => {
+    const [count, setCount] = useState(0);
+    const numericTarget = parseInt(target.replace(/[^\d]/g, ''));
+    const suffix = target.replace(/[\d]/g, '');
+
+    useEffect(() => {
+      if (!isVisible) return;
+
+      const duration = 2000;
+      const steps = 60;
+      const increment = numericTarget / steps;
+      let current = 0;
+
+      const timer = setInterval(() => {
+        current += increment;
+        if (current >= numericTarget) {
+          setCount(numericTarget);
+          clearInterval(timer);
+        } else {
+          setCount(Math.floor(current));
+        }
+      }, duration / steps);
+
+      return () => clearInterval(timer);
+    }, [isVisible, numericTarget]);
+
+    return <span>{count}{suffix}</span>;
+  };
+
   return (
-    <section className="py-24 bg-gradient-to-r from-teal-600 via-teal-500 to-navy-600 relative overflow-hidden">
-      {/* Background decorative elements */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-10 left-10 w-32 h-32 bg-white rounded-full blur-xl animate-float"></div>
-        <div className="absolute bottom-10 right-10 w-24 h-24 bg-white rounded-full blur-xl animate-float" style={{animationDelay: '1s'}}></div>
-        <div className="absolute top-1/2 left-1/3 w-16 h-16 bg-white rounded-full blur-lg animate-float" style={{animationDelay: '2s'}}></div>
+    <section 
+      id="statistics-section"
+      className="py-32 bg-gradient-to-br from-teal-50 via-white to-navy-50 dark:from-navy-900 dark:via-black dark:to-teal-900 relative overflow-hidden"
+    >
+      {/* Animated background elements */}
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute top-20 left-20 w-40 h-40 bg-teal-500 rounded-full blur-3xl animate-float"></div>
+        <div className="absolute bottom-20 right-20 w-32 h-32 bg-navy-500 rounded-full blur-3xl animate-float" style={{animationDelay: '1s'}}></div>
+        <div className="absolute top-1/2 left-1/3 w-24 h-24 bg-brown-500 rounded-full blur-2xl animate-float" style={{animationDelay: '2s'}}></div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
-            Trusted by Millions
-            <span className="block text-white/90">Worldwide</span>
+        <div className="text-center mb-20 animate-fade-in">
+          <h2 className="text-5xl md:text-6xl font-bold mb-8 text-navy-800 dark:text-white">
+            Transforming Lives
+            <span className="block bg-gradient-to-r from-teal-600 to-navy-600 bg-clip-text text-transparent">
+              Across the Globe
+            </span>
           </h2>
-          <p className="text-xl text-white/80 max-w-3xl mx-auto leading-relaxed">
-            Our impact speaks for itself. See how Mindset is transforming lives and building a global community of wellness.
+          <p className="text-xl text-navy-600 dark:text-white/80 max-w-4xl mx-auto leading-relaxed">
+            Our impact speaks for itself. See how Mindset is building a global community of wellness 
+            and helping millions achieve mental clarity, peace, and happiness.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
           {stats.map((stat, index) => (
             <div 
               key={index}
-              className="text-center group animate-scale-in hover-lift"
-              style={{ animationDelay: `${index * 150}ms` }}
+              className={`group text-center transform transition-all duration-700 hover:scale-105 ${
+                isVisible ? 'animate-fade-in' : 'opacity-0'
+              }`}
+              style={{ animationDelay: `${index * 200}ms` }}
             >
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 neomorphic hover:bg-white/15 transition-all duration-300">
-                <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-white/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <stat.icon className="w-8 h-8 text-white" />
+              <div className="bg-white/80 dark:bg-navy-800/80 backdrop-blur-lg rounded-3xl p-8 lg:p-10 border border-white/20 dark:border-navy-700/30 shadow-2xl hover:shadow-3xl transition-all duration-500">
+                {/* Animated icon */}
+                <div className={`w-20 h-20 mx-auto mb-8 rounded-full bg-gradient-to-r ${stat.color} flex items-center justify-center group-hover:scale-110 transition-transform duration-500 shadow-lg`}>
+                  <stat.icon className="w-10 h-10 text-white" />
                 </div>
                 
-                <div className="text-4xl md:text-5xl font-bold text-white mb-3 group-hover:scale-105 transition-transform duration-300">
-                  {stat.number}
+                {/* Counting number animation */}
+                <div className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-navy-800 to-teal-600 dark:from-white dark:to-teal-400 bg-clip-text text-transparent">
+                  <CountingNumber target={stat.number} isVisible={isVisible} />
                 </div>
                 
-                <h3 className="text-xl font-semibold text-white mb-2">
+                <h3 className="text-xl lg:text-2xl font-semibold text-navy-800 dark:text-white mb-3">
                   {stat.label}
                 </h3>
                 
-                <p className="text-white/70 text-sm">
+                <p className="text-navy-600 dark:text-white/70 leading-relaxed">
                   {stat.description}
                 </p>
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Additional trust indicators */}
+        <div className="mt-20 text-center">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center opacity-60">
+            <div className="text-center">
+              <div className="text-2xl font-bold text-navy-800 dark:text-white mb-2">Featured in</div>
+              <div className="text-navy-600 dark:text-white/70">TechCrunch</div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl font-bold text-navy-800 dark:text-white mb-2">Winner</div>
+              <div className="text-navy-600 dark:text-white/70">App Store Awards</div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl font-bold text-navy-800 dark:text-white mb-2">Certified by</div>
+              <div className="text-navy-600 dark:text-white/70">Mental Health America</div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl font-bold text-navy-800 dark:text-white mb-2">Recommended by</div>
+              <div className="text-navy-600 dark:text-white/70">Healthcare Professionals</div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

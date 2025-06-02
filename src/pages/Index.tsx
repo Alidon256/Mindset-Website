@@ -4,6 +4,7 @@ import Hero from '@/components/Hero';
 import Features from '@/components/Features';
 import AppShowcase from '@/components/AppShowcase';
 import Statistics from '@/components/Statistics';
+import About from '@/components/About';
 import Testimonials from '@/components/Testimonials';
 import FAQ from '@/components/FAQ';
 import CTA from '@/components/CTA';
@@ -17,6 +18,7 @@ const Index = () => {
       <Features />
       <AppShowcase />
       <Statistics />
+      <About />
       <Testimonials />
       <FAQ />
       <CTA />
