@@ -21,6 +21,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/meditation" element={<Meditation />} />
           <Route path="/mindset-ai" element={<MindsetAI />} />
+          <Route path="/ai" element={<MindsetAI />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
